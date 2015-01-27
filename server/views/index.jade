@@ -1,10 +1,27 @@
 doctype html
 html(ng-app="app")
   head
-    title= title
+    title My Protractor Trials
     <!-- inject:css -->
     <!-- endinject -->
   body
     p Welcome to the ng-session-timeout demo
+    #github-container(ng-controller="GitHubCtrl")
+      #github-profile-details(ng-if="model")
+        p Details
+        .field.avatar-url
+          span.field-label Avatar Url:
+          span.field-value {{model.avatar_url}}
+        .field.followers
+          span.field-label Followers:
+          span.field-value {{model.followers}}
+        .field.following
+          span.field-label Following:
+          span.field-value {{model.following}}
+        .field.created-at
+          span.field-label Created AT:
+          span.field-value {{model.created_at}}
+      #github-profile-errors(ng-if="hasErrors()")
+        p Error processing request for @armw4...
     <!-- inject:js -->
     <!-- endinject -->
