@@ -117,9 +117,9 @@ This may seem like a no brainer, but don’t try looking up elements prior to th
 You’re gonna get element not found exceptions and crap like that. Also make sure any `onLoad` mock configurations get set up
 before the page is loaded. It goes:
 
-1. [configure the mock](https://github.com/armw4/protractor-trials/blob/master/client/github/github-api-mock.e2e.coffee#L7)
-2. [load the DOM](https://github.com/armw4/protractor-trials/blob/master/client/home/home-page.e2e.coffee#L9)
-3. [execute queries against the DOM](https://github.com/armw4/protractor-trials/blob/master/client/home/home-page.e2e.coffee#L2)
+1. [configure the mock](https://github.com/armw4/protractor-trials/blob/3555f0630c7951a954365d3669bb2ca7dbbcc790/client/github/github-api-mock.e2e.coffee#L7)
+2. [load the DOM](https://github.com/armw4/protractor-trials/blob/3555f0630c7951a954365d3669bb2ca7dbbcc790/client/home/home-page.e2e.coffee#L9)
+3. [execute queries against the DOM](https://github.com/armw4/protractor-trials/blob/3555f0630c7951a954365d3669bb2ca7dbbcc790/client/home/home-page.e2e.coffee#L2)
 
 > ***”And in that order...”***
 
