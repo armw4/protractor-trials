@@ -29,7 +29,7 @@ has to invoked your callback, or it’ll never run. It’s kinda scary if you th
 if a callback contained a bug, you’d never see it unless the callback were triggered (chances are...it would be).
 Let me give you an example to illustrate my point:
 
-```
+```js
 function test(fn) { fn() }
 
 test(function() { cons.long('hi there'); })
@@ -42,7 +42,7 @@ ReferenceError: cons is not defined
 See that? I purposely misspelled console and it bombed out. Watch what happens when I update `test` to not invoke
 it’s callback:
 
-```
+```js
 function test(fn) { console.log('not invoking callback. just koolin.') }
 
 test(function() { cons.long('hi there'); })
