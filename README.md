@@ -49,7 +49,7 @@ undefined
 ```
 
 See? No reference error there. Firefox’s console spits out the return value of the function (`undefined`), and
-logs some text to the console. But all clear (no erors). This is how code [like this works](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/github-api-mock.e2e.coffee).
+logs some text to the console. But all clear (no erors). This is how code [like this works](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/github-api-mock.e2e.coffee#L10)
 
 If you take a look there, you’ll see that `$httpBackend` is being referenced in the callback. It isn’t defined anywhere though,
 not even globally. `http-backend-proxy` will serialize that guy, and by the time it’s run in the browser, your app will be expected
