@@ -105,10 +105,23 @@ I spent hours trying to figure out why my specs were failing. Then I saw [this](
 There’s the concept of "on load" configurations. Basically if when you initially load your pages, and requests are triggered without
 any user interaction (bootstrapping for example), then you will want to [register these guys for onLoad like so](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/github-api-mock.e2e.coffee#L8).
 The first thing that happens when my page loads is a request to the github API. If I were to remove that call to `@proxy.onLoad`,
-my specs would fail. Everything else will pretty much be a barebones configuration. You’d just skip the call to onLoad like
+my specs would fail. Everything else will pretty much be a barebones configuration. You’d just skip the call to `onLoad` like
 [this guy](https://github.com/kbaltrinic/http-backend-proxy/blob/5b52ef02909c49d1dc6d46ac6303f044e4c2891e/test/e2e/proxy-when-spec.js#L91).
 Most requests to a remote server will require some sort of user interaction (i.e. button click) before they’re initiated. That’s
 what I consider to be the “Everything Else” category.
+
+##### DOM Above All :gift:
+--------------------------
+
+This may seem like a no brainer, but don’t try looking up elements prior to the DOM being loaded (some call to `brower.get`).
+You’re gonna get element not found exceptions and crap like that. Also make sure any `onLoad` mock configurations get set up
+before the page is loaded. It goes:
+
+1 [configure the mock]
+2 [load the DOM]
+3 [execute queries against the DOM]
+
+> ***”And in that order...”***
 
 ##### Close Em’ :airplane:
 --------------------------
