@@ -33,7 +33,9 @@ Let me give you an example to illustrate my point:
 function test(fn) { fn() }
 
 test(function() { cons.long('hi there'); })
+```
 
+```
 ReferenceError: cons is not defined
 ```
 
@@ -44,6 +46,9 @@ it’s callback:
 function test(fn) { console.log('not invoking callback. just koolin.') }
 
 test(function() { cons.long('hi there'); })
+```
+
+```
 undefined
 "not invoking callback. just koolin."
 ```
