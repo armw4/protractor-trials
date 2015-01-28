@@ -1,8 +1,4 @@
-HttpBackend = require 'http-backend-proxy'
-
-payload1 = require './armw4-github-payload-1.e2e.json'
-payload2 = require './armw4-github-payload-2.e2e.json'
-
+HttpBackend   = require 'http-backend-proxy'
 HomePage      = require '../home/home-page.e2e'
 GitHubApiMock = require './github-api-mock.e2e'
 
@@ -18,7 +14,7 @@ describe 'my test suite', ->
 
   describe 'payload 1', ->
     beforeEach ->
-      githubApiMock.configure payload1
+      githubApiMock.configurePayload1()
       homePage.load().initialize()
 
     it 'should render data to the UI based on the results of the first payload', ->
@@ -28,7 +24,7 @@ describe 'my test suite', ->
 
   describe 'payload 2', ->
     beforeEach ->
-      githubApiMock.configure payload2
+      githubApiMock.configurePayload2()
       homePage.load().initialize()
 
     it 'should render data to the UI based on the results of the second payload', ->
