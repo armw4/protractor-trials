@@ -20,6 +20,6 @@ exports.config = {
 
   seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.44.0.jar',
 
-  baseUrl: '127.0.0.1:3000'
+  baseUrl: 'http://127.0.0.1:3000'
 
 };

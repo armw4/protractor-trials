@@ -71,7 +71,10 @@ scripts = ->
   .pipe ngmin()
   .pipe gulp.dest 'build/scripts/'
 
-bowerAssets = -> bower read: false
+bowerAssets = ->
+  bower read: false
+  .pipe cache 'vendor'
+  .pipe remember 'vendor'
 
 stylesheets = ->
   gulp
@@ -101,7 +104,7 @@ sources = ->
   # skip angular mocks file (it's for testing purposes....production code only)
   bowerAppAssets = bowerAssets().pipe filter '!**/*-mocks.js'
 
-  es.merge  bowerAppAssets, templates(), scripts(), stylesheets()
+  es.merge  bowerAssets(), templates(), scripts(), stylesheets()
 
 testSuite = ->
   # scripts only since bower will literally give us ALL files of ALL extensions
@@ -163,7 +166,7 @@ gulp.task 'karma', ['files:templates', 'files:scripts', 'files:specs'], ->
   # Make sure failed tests cause gulp to exit non-zero
   .on 'error', (e) -> throw e
 
-gulp.task 'protractor', ['files:e2e', 'files:e2e:fixtures'], ->
+gulp.task 'protractor', ['files:e2e', 'files:e2e:fixtures', 'build'], ->
   e2e()
   .pipe protractor configFile: 'protractor.config.js'
   .on 'error', (e) -> throw e

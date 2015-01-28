@@ -39,6 +39,7 @@
     "karma-chrome-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
+    "main-bower-files": "^2.5.0",
     "protractor": "^1.6.1",
     "rimraf": "^2.2.8"
   }

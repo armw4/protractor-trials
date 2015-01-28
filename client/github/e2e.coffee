@@ -3,24 +3,36 @@ HttpBackend = require 'http-backend-proxy'
 payload1 = require './armw4-github-payload-1.e2e.json'
 payload2 = require './armw4-github-payload-2.e2e.json'
 
+HomePage      = require '../home/home-page.e2e'
+GitHubApiMock = require './github-api-mock.e2e'
+
 describe 'my test suite', ->
-  $httpBackend = null
+  homePage = proxy = githubApiMock = null
 
   beforeEach ->
-    browser.get '/'
+    proxy         = new HttpBackend(browser)
+    githubApiMock = new GitHubApiMock(proxy)
+    homePage      = new HomePage()
 
-    $httpBackend = new HttpBackend(browser)
-
-    $httpBackend.context =
-      payload1: payload1
-      payload2: payload2
-
-    $httpBackend
-      .whenGET 'https://api.github.com/users/armw4'
-      .respond -> [200, $httpBackend.context.payload]
+  afterEach -> proxy.onLoad.reset()
 
   describe 'payload 1', ->
-    beforeEach -> $httpBackend.syncContext payload: payload1
+    beforeEach ->
+      githubApiMock.configure payload1
+      homePage.load().initialize()
 
-  describe 'payload 1', ->
-    beforeEach -> $httpBackend.syncContext payload: payload2
+    it 'should render data to the UI based on the results of the first payload', ->
+      avatarUrl = homePage.avatarUrl()
+
+      expect(avatarUrl).toEqual 'https://gravatar.com'
+
+  describe 'payload 2', ->
+    beforeEach ->
+      githubApiMock.configure payload2
+      homePage.load().initialize()
+
+    it 'should render data to the UI based on the results of the second payload', ->
+      avatarUrl = homePage.avatarUrl()
+
+      expect(avatarUrl).toEqual 'https://consoco.com'
+
