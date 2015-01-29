@@ -81,7 +81,7 @@ sendReq@http://localhost:3000/angular/angular.js:9619:1
 $http/serverRequest@http://localhost:3000/angular/angular.js:9335:16
 ```
 
-Hence the birth of [#2](https://github.com/armw4/protractor-trials/issues/1). Now..you could have your app just kinda
+Hence the birth of [#1](https://github.com/armw4/protractor-trials/issues/1). Now..you could have your app just kinda
 hack `$httpBackend` and do a pass through for all requests when your’re not running protractor, but I would not recommend
 that. I would say go all or nothing. Exclude `ngMockE2E` and `angular-mocks` all together when not running e2e tests. However
 you decide to skin this cat is of course up to you. I’m just the messenger...you know the drill.
@@ -136,7 +136,7 @@ over to the `kbaltrinic/http-backend-proxy` README for more details. It’s ther
 [`context` object](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/github-api-mock.e2e.coffee#L5) for example.
 I think this project is really kool and it’s gonna serve as another one of my swiss army knives. As always...
 
-> ***Roll em’...***
+> ***”Roll em’...”***
 
 :fries: :coffee: :rugby_football: :calendar: :euro: :tv: :school_satchel: :bamboo: :full_moon_with_face: :boar: :suspect: :muscle:
 :sweat_drops: :collision: :joy: :stuck_out_tongue_winking_eye: :crocodile: :bouquet: :water_buffalo: :hatching_chick: :racehorse:
