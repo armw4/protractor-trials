@@ -93,12 +93,12 @@ I’ve already [written](https://github.com/armw4/github-features#why-page-objec
 and why I believe in them. So no need to beat that horse, it died already. I just wanted to make it clear that they’re being used here.
 If I’m gonna do this fulls scale (as is the plan for our internal application), I’d want to make use of two basic constructs:
 
-* [page objects](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/home/home-page.e2e.coffee)
-* [mock configuration objects](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/github-api-mock.e2e.coffee)
+* [page objects](https://github.com/armw4/protractor-trials/blob/7d36f5fbc5c45810e48d67ac46365eb91fe7ecf7/client/home/home-page.e2e.coffee)
+* [mock configuration objects](https://github.com/armw4/protractor-trials/blob/7d36f5fbc5c45810e48d67ac46365eb91fe7ecf7/client/github/mock.e2e.coffee)
 
 And these guys:
 
-* [json](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/armw4-github-payload-1.e2e.json) [fixtures](https://github.com/armw4/protractor-trials/blob/d4ffce249223a0ba3016982449e7f3289097887d/client/github/armw4-github-payload-2.e2e.json)
+* [json](https://github.com/armw4/protractor-trials/blob/7d36f5fbc5c45810e48d67ac46365eb91fe7ecf7/client/github/armw4-consoco-response.e2e.json) [fixtures](https://github.com/armw4/protractor-trials/blob/7d36f5fbc5c45810e48d67ac46365eb91fe7ecf7/client/github/armw4-gravatar-response.e2e.json)
 
 These guys will dry things up quite a bit and encapsulate a lot of boilerplate. This, combined with the aesthetically pleasing and
 Ruby-esque syntax of Coffee Script make for one hell of a show. It puts the fun back in e2E for angular apps in my mind.
