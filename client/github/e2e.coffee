@@ -1,6 +1,6 @@
 HttpBackend   = require 'http-backend-proxy'
 HomePage      = require '../home/home-page.e2e'
-GitHubApiMock = require './github-api-mock.e2e'
+GitHubApiMock = require './mock.e2e'
 
 describe 'github', ->
   homePage = proxy = githubApiMock = null
