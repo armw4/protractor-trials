@@ -2,7 +2,7 @@ HttpBackend   = require 'http-backend-proxy'
 HomePage      = require '../home/home-page.e2e'
 GitHubApiMock = require './github-api-mock.e2e'
 
-describe 'my test suite', ->
+describe 'github', ->
   homePage = proxy = githubApiMock = null
 
   beforeEach ->
@@ -12,23 +12,32 @@ describe 'my test suite', ->
 
   afterEach -> proxy.onLoad.reset()
 
-  describe 'payload 1', ->
+  describe 'gravatar response', ->
     beforeEach ->
-      githubApiMock.configurePayload1()
-      homePage.load().initialize()
+      githubApiMock.configureGravatarResponse()
+      homePage.load()
 
-    it 'should render data to the UI based on the results of the first payload', ->
+    it 'should render data to the UI based on the results of the gravatar response', ->
       avatarUrl = homePage.avatarUrl()
 
       expect(avatarUrl).toEqual 'https://gravatar.com'
 
-  describe 'payload 2', ->
+  describe 'consoco response', ->
     beforeEach ->
-      githubApiMock.configurePayload2()
-      homePage.load().initialize()
+      githubApiMock.configureConsocoResponse()
+      homePage.load()
 
-    it 'should render data to the UI based on the results of the second payload', ->
+    it 'should render data to the UI based on the results of the consoco response', ->
       avatarUrl = homePage.avatarUrl()
 
       expect(avatarUrl).toEqual 'https://consoco.com'
 
+  describe 'error response', ->
+    beforeEach ->
+      githubApiMock.configureErrorResponse()
+      homePage.load()
+
+    it 'should show an error message', ->
+      errorMessage = homePage.errorMessage()
+
+      expect(errorMessage).toEqual 'Error processing request for @armw4...'

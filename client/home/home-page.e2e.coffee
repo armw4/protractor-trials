@@ -1,16 +1,15 @@
 class HomePage
-  initialize: ->
-    avatarUrlSelector = By.css '.field-avatar-url .field-value'
-
-    @_avatarUrl = element avatarUrlSelector
-
-    @
-
   load: ->
     browser.get '/'
 
-    @
+  avatarUrl: ->
+    @_avatarUrl ?= element By.css('.field-avatar-url .field-value')
 
-  avatarUrl: -> @_avatarUrl.getText()
+    @_avatarUrl.getText()
+
+  errorMessage: ->
+    @_errorMessage ?= element By.css('#github-profile-errors p')
+
+    @_errorMessage.getText()
 
 module.exports = HomePage

@@ -1,12 +1,14 @@
-payload1 = require './armw4-github-payload-1.e2e.json'
-payload2 = require './armw4-github-payload-2.e2e.json'
+gravatarResponse = require './armw4-gravatar-response.e2e.json'
+consocoResponse  = require './armw4-consoco-response.e2e.json'
 
 class GitHubApiMock
   constructor: (proxy) -> @proxy = proxy
 
-  configurePayload1: -> configure.call @, payload1
+  configureGravatarResponse: -> configure.call @, gravatarResponse
 
-  configurePayload2: -> configure.call @, payload2
+  configureConsocoResponse: -> configure.call @, consocoResponse
+
+  configureErrorResponse: -> configure.call @, null, 500
 
   configure = (responsePayload, responseStatusCode = 200) ->
     @proxy.context = payload: responsePayload, status: responseStatusCode
